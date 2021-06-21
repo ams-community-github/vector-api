@@ -9,4 +9,12 @@ export class VectorService {
       y: Math.round(vector.y),
     };
   }
+
+  length(vector: Vector): Vector {
+    const { x, y } = vector;
+    return {
+      x: x * x,
+      y: y * y
+    };
+  }
 }
