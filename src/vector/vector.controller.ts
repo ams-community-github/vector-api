@@ -1,17 +1,13 @@
-import { Controller, Get, Query } from '@nestjs/common';
-import { VectorModel } from './vector.model';
-import { VectorService } from './vector.service';
+import { Controller, Get, Query } from "@nestjs/common";
+import { VectorModel } from "./vector.model";
+import { VectorService } from "./vector.service";
 
-@Controller('vector')
+@Controller("vector")
 export class VectorController {
-  constructor(
-    private vectorService: VectorService
-  ) { }
+  constructor(private vectorService: VectorService) {}
 
-  @Get('round')
-  round(
-    @Query() vector: VectorModel
-  ) {
+  @Get("round")
+  round(@Query() vector: VectorModel) {
     return this.vectorService.round(vector);
   }
 }

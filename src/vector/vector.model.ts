@@ -5,7 +5,7 @@ export class VectorModel {
   @ApiProperty()
   @IsDecimal()
   public x: number;
-  
+
   @ApiProperty()
   @IsNotEmpty()
   @IsDecimal()

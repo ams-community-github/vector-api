@@ -1,12 +1,12 @@
-import { Test } from '@nestjs/testing';
-import { Factory } from 'rosie';
-import { random } from 'faker';
-import { Vector } from './vector';
-import { VectorService } from './vector.service';
+import { Test } from "@nestjs/testing";
+import { Factory } from "rosie";
+import { random } from "faker";
+import { Vector } from "./vector";
+import { VectorService } from "./vector.service";
 
-describe('VectorService', () => {
+describe("VectorService", () => {
   let service: VectorService;
-  
+
   beforeEach(async () => {
     const module = await Test.createTestingModule({
       providers: [VectorService],
@@ -15,9 +15,11 @@ describe('VectorService', () => {
     service = module.get<VectorService>(VectorService);
   });
 
-  const createVector = () => new Factory<Vector>()
-    .attr('x', () => random.number())
-    .attr('y', () => random.number()).build();
+  const createVector = () =>
+    new Factory<Vector>()
+      .attr("x", () => random.number())
+      .attr("y", () => random.number())
+      .build();
 
   it(`
     Given a Vector
@@ -29,7 +31,7 @@ describe('VectorService', () => {
     const expected = {
       x: Math.round(vector.x),
       y: Math.round(vector.y),
-    }
+    };
 
     // When
     const actual = service.round(vector);
@@ -38,4 +40,3 @@ describe('VectorService', () => {
     expect(actual).toEqual(expected);
   });
 });
-
