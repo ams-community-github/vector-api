@@ -20,11 +20,6 @@ jobs:
 
       - name: 'Run e2e tests'
         run: yarn test:e2e
-
-      - name: 'Login via Azure CLI'
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
         
       - name: 'Build image'
         run: |
