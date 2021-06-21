@@ -39,4 +39,24 @@ describe("VectorService", () => {
     // Then
     expect(actual).toEqual(expected);
   });
+
+  it(`
+    Given a vector
+    When computing the vector length
+    Then the length is returned
+  `, async () => {
+    // Given
+    const vector = createVector();
+    const { x, y } = vector;
+    const expected = {
+      x: x * x,
+      y: y * y,
+    };
+
+    // When
+    const actual = service.length(vector);
+
+    // Then
+    expect(actual).toEqual(expected);
+  });
 });
