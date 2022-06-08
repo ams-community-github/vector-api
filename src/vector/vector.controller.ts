@@ -10,4 +10,9 @@ export class VectorController {
   round(@Query() vector: VectorModel) {
     return this.vectorService.round(vector);
   }
+
+  @Get("length")
+  length(@Query() vector: VectorModel) {
+    return this.vectorService.length(vector);
+  }
 }

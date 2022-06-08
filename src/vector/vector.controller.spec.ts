@@ -49,4 +49,37 @@ describe("Vector controller (e2e)", () => {
       .query({ x })
       .expect(400);
   });
+
+  it("/vector/length (GET) - 200", () => {
+    const x = datatype.float();
+    const y = datatype.float();
+
+    return request(app.getHttpServer())
+      .get("/vector/length")
+      .query({ x, y })
+      .expect(
+        JSON.stringify({
+          x: x * x,
+          y: y * y,
+        })
+      );
+  });
+
+  it("/vector/round (GET) - 400 - Missing X property", () => {
+    const x = datatype.float();
+
+    return request(app.getHttpServer())
+      .get("/vector/length")
+      .query({ x })
+      .expect(400);
+  });
+
+  it("/vector/round (GET) - 400 - Missing Y property", () => {
+    const x = datatype.float();
+
+    return request(app.getHttpServer())
+      .get("/vector/length")
+      .query({ x })
+      .expect(400);
+  });
 });
