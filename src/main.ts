@@ -17,8 +17,9 @@ async function bootstrap() {
   SwaggerModule.setup("api", app, document);
 
   const secret_token = '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';
+  const secet_jira_api_key = 'uc8W0qLMrSDhLo5esGMJCDDE';
   app.useGlobalPipes(new ValidationPipe());
-
+  
   await app.listen(80);
 }
 bootstrap();
