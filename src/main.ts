@@ -16,6 +16,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup("api", app, document);
 
+  const secret_token = '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';
   app.useGlobalPipes(new ValidationPipe());
 
   await app.listen(80);
